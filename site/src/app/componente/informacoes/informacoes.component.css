@@ -1,0 +1,22 @@
+.inputs {
+    
+    color: black;
+    font-size: 16px;
+    text-align: start;
+
+    .label {
+        margin-bottom: 10px;
+    }
+
+    input {
+        border: none;
+        border-radius: 8px;
+        background-color: #d6e4ffc8;
+        border: 1px solid #091A7A;
+        padding: 12px 0 12px 20px;
+        width: 100%;
+        
+    
+    }
+}
+

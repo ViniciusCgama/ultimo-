@@ -1,0 +1,32 @@
+<header>
+  <nav>
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-md-3 col-sm-3 col-3">
+          <div class="imglogo">
+            <img src="assets/svg/loguinho.svg" alt="" class="loguinho">
+          </div>
+        </div>
+
+        <div class="col-md-9 col-sm-9 col-9">
+          <div class="d-flex justify-content-between align-items-center">
+
+              <li class="list-inline-item escrita"><a>M A N T H A N O</a></li>
+
+
+            <div class="iconemenu" (click)="toggleMenu()">
+              <i class="bi bi-list"></i>
+            </div>
+
+            <!-- Submenu -->
+            <ul id="submenu" class="list-inline mb-0 d-none">
+              <li class="list-inline-item escrita"><a routerLink="/contato">Entrar</a></li>
+              <li class="list-inline-item escrita"><a routerLink="/contato">Cadastrar-se</a></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

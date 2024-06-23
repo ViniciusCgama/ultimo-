@@ -1,0 +1,58 @@
+<app-login
+    titulo="Faça sua conta"
+    primeiroBotao="Cadastrar"
+    segundoBotao="Já tem uma conta?"
+    (submit)="submit()"
+    (navigate)="navigate()"
+    [disableBtn1]="!pcadastroForm.valid"
+>
+    <form [formGroup]="pcadastroForm">
+        <app-informacoes
+            formControlName="name"
+            inputName="name"
+            type="text"
+            label="Nome"
+            placeholder="Exemplo: Fulano de tal"
+        >
+        </app-informacoes>
+
+        <app-informacoes
+            formControlName="email"
+            inputName="email"
+            type="email"
+            label="Email"
+            placeholder="manthano@gmail.com"
+        >
+        </app-informacoes>
+
+        <app-informacoes
+        formControlName="phone"
+        inputName="phone"
+        type="text"
+        label="Numero de telefone"
+        placeholder="(11) 99999-9999"
+    >
+    </app-informacoes>
+
+        <app-informacoes
+            formControlName="password"
+            inputName="password"
+            type="password"
+            label="Senha"
+            placeholder="********"
+        >
+        </app-informacoes>
+        <app-informacoes
+            formControlName="confirmapassword"
+            inputName="confirmapassword"
+            type="password"
+            label="Confirme sua senha"
+            placeholder="********"
+        >
+        </app-informacoes>
+
+
+
+
+    </form>
+</app-login>

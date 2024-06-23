@@ -1,0 +1,31 @@
+<main>
+    <section class="anterior"></section>
+      <section class="comconteudo">
+        <br/>
+          <h2>{{ titulo }}</h2>
+          <ng-content></ng-content>
+          <div class="botoes">
+              <button
+              class="btn1"
+              (click)="submit()"
+              >
+              {{ primeiroBotao }}
+            </button>
+              <div class="ou">
+                  <div></div>
+                  <span>ou</span>
+                  <div></div>
+              </div>
+              <button class="btn2" (click)="navigate()">{{ segundoBotao }}</button>
+              <br/>
+            </div>
+
+      </section>
+
+      <section class="soimg">
+          <h1> M A N T H A N O </h1>
+          <br/>
+          <br/>
+          <img src="https://uploaddeimagens.com.br/images/004/799/852/thumb/loguinho_1_.jpg?1718634964"/>
+      </section>
+  </main>

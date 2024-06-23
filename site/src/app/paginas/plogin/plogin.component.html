@@ -1,0 +1,28 @@
+<app-login
+    titulo="Entre na sua conta"
+    primeiroBotao="Entrar"
+    segundoBotao="Cadastre-se"
+    (submit)="submit()"
+    (navigate)="navigate()"
+    [disableBtn1]="!loginForm.valid">
+    <form [formGroup]="loginForm">
+
+        <app-informacoes
+            formControlName="email"
+            inputName="email"
+            type="email"
+            label="Email"
+            placeholder="manthano@gmail.com">
+        </app-informacoes>
+
+        <app-informacoes
+            formControlName="password"
+            inputName="password"
+            type="password"
+            label="Senha">
+        </app-informacoes>
+        
+        <span class="abc">Esqueceu sua senha?</span>
+
+    </form>
+</app-login>
