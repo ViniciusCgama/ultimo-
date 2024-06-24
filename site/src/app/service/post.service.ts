@@ -23,5 +23,12 @@ export class PostService {
     return this.http.get<Post[]>(`${this.baseUrl}/$posts?topic=${topic}`);
   }
 
+  buscarPostsPorAutor(nome: string): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.baseUrl}/$posts?nome=${nome}`);
+  }
+
+  deletePost(postId: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/$posts/${postId}`);
+  }
 
 }

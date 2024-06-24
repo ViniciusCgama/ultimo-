@@ -54,8 +54,9 @@
   font-weight: 700;
   text-align: center;
   white-space: nowrap;
+  color: #000000;
   vertical-align: middle;
-  border: 1px solid transparent;
+  border: 1px solid solid;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   line-height: 1.5;
@@ -155,11 +156,12 @@ textarea
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  border: 1px solid transparent;
+  border: 1px solid solid;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 9999px;
+
   background-color: #b0cedf;
   transition: background-color 0.2s, border-color 0.2s;
   margin: 10px 0;
@@ -170,4 +172,8 @@ textarea
 .btn1:hover {
   background-color: #c2c0c0;
   color: #000000;
+}
+
+.margin-solid{
+  border:#242020 solid;
 }

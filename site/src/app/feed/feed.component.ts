@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-feed',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './feed.component.html',
+  templateUrl:'./feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
@@ -32,6 +32,8 @@ export class FeedComponent implements OnInit {
     'Outros'
   ];
   listPost: Post[] = [];
+  likes = 0;
+  dislikes = 0;
   pesquisaTopico: string = '';
   post!: PostService;
   selectedImage: string | ArrayBuffer | null = null;
@@ -44,14 +46,15 @@ export class FeedComponent implements OnInit {
     this.postForm = this.formBuilder.group({
       topic: ['', Validators.required],
       nome: ['Vinicius', [Validators.required, Validators.minLength(2)]],
-      mensagem: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10000)]]
+      mensagem: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10000)]],
+      likes: 0,
+      dislikes: 0
     });
   }
 
   ngOnInit(): void {
     this.findPosts();
   }
-
 
   findPosts() {
     this.postService.getPosts().subscribe((data: Post[]) => {
@@ -77,5 +80,40 @@ export class FeedComponent implements OnInit {
     } else {
       this.findPosts();
   }
+}
+
+
+  incrementLikes(post: Post) {
+    if (!post.likeClicked) {
+      post.likes++;
+      post.likeClicked = true;
+      if (post.dislikeClicked) {
+        post.dislikes--;
+        post.dislikeClicked = false;
+      }
+    } else {
+      post.likes--;
+      post.likeClicked = false;
+    }
+  }
+
+  incrementDislikes(post: Post) {
+    if (!post.dislikeClicked) {
+      post.dislikes++;
+      post.dislikeClicked = true;
+      if (post.likeClicked) {
+        post.likes--;
+        post.likeClicked = false;
+      }
+    } else {
+      post.dislikes--;
+      post.dislikeClicked = false;
+    }
+  }
+
+  excluirPost(post: Post) {
+    this.postService.deletePost(post.id).subscribe(() => {
+    this.listPost = this.listPost.filter(p => p.id !== post.id);
+  });
 }
 }

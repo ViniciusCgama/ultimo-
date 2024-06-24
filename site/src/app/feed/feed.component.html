@@ -4,16 +4,16 @@
       <div class="sticky-section">
         <div class="card border-0" style="width: 18rem;">
           <div class="d-flex justify-content-center">
-            <img src="https://uploaddeimagens.com.br/images/004/802/916/thumb/21104.png?1719008015" class="card-img-top rounded-circle w-75" alt="Logo">
+            <img src="https://uploaddeimagens.com.br/images/004/802/916/thumb/21104.png?1719008015"  class="card-img-top rounded-circle w-75" alt="Logo">
           </div>
           <div class="card-body text-center">
             <h5 class="card-title">Vinicius</h5>
             <p class="card-text">Desenvolvedor Fullstack</p>
-            <a href="https://github.com/ViniciusCgama" target="_blank" class="btn btn-outline-dark d-flex justify-content-center">GitHub</a>
+            <a href="perfil" target="_blank" class="btn btn-outline-dark d-flex justify-content-center">Perfil</a>
 
             <div [formGroup]="form">
             <label for="topic" class="text-monospace">Selecione um tópico:</label>
-            <select id="topic" class="form-select" aria-label="Default select example" formControlName="topic">
+            <select id="topic" class="form-select margin-solid" aria-label="Default select example" formControlName="topic">
               <option *ngFor="let topic of topics" [value]="topic">{{ topic }}</option>
             </select>
              <button class="btn1" (click)="buscarTopico()">Buscar por tópico</button>
@@ -30,11 +30,11 @@
         <form [formGroup]="postForm">
           <div class="form-group">
             <label for="topic" class="text-monospace">Selecione um tópico:</label>
-            <select id="topic" class="form-select" aria-label="Default select example" formControlName="topic">
+            <select id="topic" class="form-select margin-solid" aria-label="Default select example" formControlName="topic">
               <option *ngFor="let topic of topics" [value]="topic">{{ topic }}</option>
             </select>
             <label for="mensagem" class="text-monospace">Mensagem:</label>
-            <textarea id="mensagem" class="form-control" rows="4" placeholder="Digite a sua mensagem" formControlName="mensagem" required></textarea>
+            <textarea id="mensagem" class="form-control margin-solid" rows="4" placeholder="Digite a sua mensagem" formControlName="mensagem" required></textarea>
           </div>
           <div *ngIf="selectedImage">
             <img [src]="selectedImage" alt="Image Preview" style="max-width: 100%; height: auto;">
@@ -55,6 +55,20 @@
           <div class="card-body">
             <h6>{{ post.topic }}</h6>
             <p class="card-text">{{ post.mensagem }}</p>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+              <div>
+            <button type="button" class="btn btn-success btn-outline-success"
+            [ngClass]="{'btn-success': post.likeClicked, 'btn-success-active': post.likeClicked}"
+            (click)="incrementLikes(post)">
+              <i class="fas fa-arrow-up"></i> Like: {{ post.likes }}
+            </button>
+            <button type="button" class="btn btn-danger"
+                    [ngClass]="{'btn-danger': post.dislikeClicked, 'btn-danger-active': post.dislikeClicked}"
+                    (click)="incrementDislikes(post)">
+              <i class="fas fa-arrow-down"></i> Dislike: {{ post.dislikes }}
+            </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

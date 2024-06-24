@@ -24,6 +24,6 @@ export const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'feed', component: FeedComponent},
     {path: 'contato', component: ContatoComponent},
-    {path: 'comunidade', component: ComunidadeComponent}
+    {path: 'perfil', component: ComunidadeComponent}
 ];
 
